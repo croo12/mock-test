@@ -29,4 +29,3 @@ Playwright test를 만들어주는 ui를 만드는 느낌.
 ### 업데이트
 
 - Playwright에 이미 codegen 기능이 있어서 이걸 활용할 수 있을듯.
-- 일단 private 킵하기
