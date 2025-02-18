@@ -1,5 +1,6 @@
 import { DemoPage } from "@/pages/demo";
+import "./app.css";
 
 export function App() {
-  return <div> <DemoPage /> </div>;
+  return  <DemoPage />;
 }
