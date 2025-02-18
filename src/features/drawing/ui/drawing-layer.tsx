@@ -6,9 +6,14 @@ interface DrawingLayerProps {
   onDrawComplete: (box: BaseBox) => void;
 }
 
-export const DrawingLayer: React.FC<DrawingLayerProps> = ({ onDrawComplete }) => {
+export const DrawingLayer: React.FC<DrawingLayerProps> = ({
+  onDrawComplete,
+}) => {
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
-  const [startPos, setStartPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [startPos, setStartPos] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  });
   const [currentBox, setCurrentBox] = useState<BaseBox | null>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
