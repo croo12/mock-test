@@ -1,20 +1,20 @@
 // DrawingLayer.tsx
 import React, { useState, useRef, MouseEvent } from "react";
-import type { BaseBox } from "@/entities/box";
+import type { Position, Size } from "@/entities/box";
 
 interface DrawingLayerProps {
-  onDrawComplete: (box: BaseBox) => void;
+  onDrawComplete: (box: Position & Size) => void;
 }
 
 export const DrawingLayer: React.FC<DrawingLayerProps> = ({
   onDrawComplete,
 }) => {
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
-  const [startPos, setStartPos] = useState<{ x: number; y: number }>({
+  const [startPos, setStartPos] = useState<Position>({
     x: 0,
     y: 0,
   });
-  const [currentBox, setCurrentBox] = useState<BaseBox | null>(null);
+  const [currentBox, setCurrentBox] = useState<(Position & Size) | null>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
   const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
@@ -32,7 +32,7 @@ export const DrawingLayer: React.FC<DrawingLayerProps> = ({
     const rect = overlayRef.current.getBoundingClientRect();
     const currentX = e.clientX - rect.left;
     const currentY = e.clientY - rect.top;
-    const newBox: BaseBox = {
+    const newBox: Position & Size = {
       x: Math.min(startPos.x, currentX),
       y: Math.min(startPos.y, currentY),
       width: Math.abs(currentX - startPos.x),

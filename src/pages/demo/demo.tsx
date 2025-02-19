@@ -1,13 +1,13 @@
-import { BaseBox } from "@/entities/box";
+import { Box, type Position, type Size } from "@/entities/box";
 import { BaseBoxComponent } from "@/entities/box/ui/base-box";
 import { DrawingLayer } from "@/features/drawing";
 import React from "react";
 
 export const DemoPage = () => {
-  const [boxes, setBoxes] = React.useState<BaseBox[]>([]);
+  const [boxes, setBoxes] = React.useState<Box[]>([]);
 
-  const handleDrawComplete = (box: BaseBox) => {
-    setBoxes((prevBoxes) => [...prevBoxes, box]);
+  const handleDrawComplete = (box: Position & Size) => {
+    setBoxes((prevBoxes) => [...prevBoxes, new Box(box)]);
   };
 
   return (
@@ -19,8 +19,8 @@ export const DemoPage = () => {
         border: "1px solid black",
       }}
     >
-      {boxes.map((box, index) => (
-        <BaseBoxComponent {...box} key={index} />
+      {boxes.map((box) => (
+        <BaseBoxComponent box={box} key={box.id} />
       ))}
       <DrawingLayer onDrawComplete={handleDrawComplete} />
     </div>

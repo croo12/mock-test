@@ -1,13 +1,7 @@
 import _ from "lodash";
+import { BoxConfig } from "../types";
 
-export interface BoxConfig {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  visible?: boolean;
-  id?: string;
-}
+
 
 export class Box {
   readonly id: string;
