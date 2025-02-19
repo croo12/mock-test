@@ -1,11 +1,18 @@
-import { BaseBox } from "../types";
+import type { Box } from "../model/box";
 
-export const BaseBoxComponent: React.FC<BaseBox> = (props) => {
-  const { x, y, width, height } = props;
+interface BaseBoxComponentProps {
+  box: Box;
+}
+
+export const BaseBoxComponent: React.FC<BaseBoxComponentProps> = (props) => {
+  const {
+    box: { x, y, width, height, visible },
+  } = props;
 
   return (
     <div
       style={{
+        display: visible ? "block" : "none",
         position: "absolute",
         left: x,
         top: y,
