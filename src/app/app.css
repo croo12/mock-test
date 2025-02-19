@@ -1,3 +1,18 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
@@ -99,23 +114,3 @@
   }
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-#root {
-  text-align: center;
-  width: 100vw;
-  height: 100vh;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

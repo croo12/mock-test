@@ -56,15 +56,7 @@ export const DrawingLayer: React.FC<DrawingLayerProps> = ({
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        cursor: "crosshair",
-        zIndex: 10, // BoxRenderer보다 위에 위치
-      }}
+      className="rounded-md border border-black absolute top-0 left-0 right-0 bottom-0 cursor-crosshair z-10"
     >
       {currentBox && (
         <div
