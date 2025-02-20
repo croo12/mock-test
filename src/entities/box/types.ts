@@ -8,7 +8,11 @@ export interface Size {
   height: number;
 }
 
-export interface BoxConfig extends Position, Size {
+export interface BoxStyle {
+  color?: string;
+}
+
+export interface BoxConfig extends Position, Size, BoxStyle {
   id?: string;
   visible?: boolean;
 }

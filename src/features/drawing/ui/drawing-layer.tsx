@@ -1,13 +1,15 @@
 // DrawingLayer.tsx
 import React, { useState, useRef, MouseEvent } from "react";
-import type { Position, Size } from "@/entities/box";
+import type { BoxStyle, Position, Size } from "@/entities/box";
 
 interface DrawingLayerProps {
-  onDrawComplete: (box: Position & Size) => void;
+  onDrawComplete: (box: Position & Size & BoxStyle) => void;
+  drawingOptions?: BoxStyle;
 }
 
 export const DrawingLayer: React.FC<DrawingLayerProps> = ({
   onDrawComplete,
+  drawingOptions,
 }) => {
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
   const [startPos, setStartPos] = useState<Position>({
@@ -43,7 +45,7 @@ export const DrawingLayer: React.FC<DrawingLayerProps> = ({
 
   const handleMouseUp = () => {
     if (!isDrawing || !currentBox) return;
-    onDrawComplete(currentBox);
+    onDrawComplete({ ...currentBox, ...drawingOptions });
     setCurrentBox(null);
     setIsDrawing(false);
   };

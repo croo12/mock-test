@@ -6,7 +6,7 @@ interface BaseBoxComponentProps {
 
 export const BaseBoxComponent: React.FC<BaseBoxComponentProps> = (props) => {
   const {
-    box: { x, y, width, height, visible },
+    box: { x, y, width, height, visible, color },
   } = props;
 
   return (
@@ -18,7 +18,8 @@ export const BaseBoxComponent: React.FC<BaseBoxComponentProps> = (props) => {
         top: y,
         width: width,
         height: height,
-        border: "2px solid red",
+        border: "2px solid",
+        borderColor: color,
       }}
     />
   );
