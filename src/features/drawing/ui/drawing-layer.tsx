@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 // DrawingLayer.tsx
 import React, { useState, useRef, MouseEvent } from "react";
 import type { BoxStyle, Position, Size } from "@/entities/box";
@@ -5,11 +6,13 @@ import type { BoxStyle, Position, Size } from "@/entities/box";
 interface DrawingLayerProps {
   onDrawComplete: (box: Position & Size & BoxStyle) => void;
   drawingOptions?: BoxStyle;
+  disabled?: boolean;
 }
 
 export const DrawingLayer: React.FC<DrawingLayerProps> = ({
   onDrawComplete,
   drawingOptions,
+  disabled,
 }) => {
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
   const [startPos, setStartPos] = useState<Position>({
@@ -51,17 +54,17 @@ export const DrawingLayer: React.FC<DrawingLayerProps> = ({
   };
 
   return (
-    <div
+    <motion.div
       ref={overlayRef}
       role="application"
       tabIndex={0}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
-      className="rounded-md border border-black absolute top-0 left-0 right-0 bottom-0 cursor-crosshair z-10"
+      className={`rounded-md border border-black absolute top-0 left-0 right-0 bottom-0 cursor-crosshair z-10 ${disabled ? "pointer-events-none" : ""}`}
     >
       {currentBox && (
-        <div
+        <motion.div
           style={{
             position: "absolute",
             left: currentBox.x,
@@ -72,6 +75,6 @@ export const DrawingLayer: React.FC<DrawingLayerProps> = ({
           }}
         />
       )}
-    </div>
+    </motion.div>
   );
 };

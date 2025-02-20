@@ -1,4 +1,5 @@
 import type { Box } from "../model/box";
+import { motion } from "motion/react";
 
 interface BaseBoxComponentProps {
   box: Box;
@@ -6,11 +7,13 @@ interface BaseBoxComponentProps {
 
 export const BaseBoxComponent: React.FC<BaseBoxComponentProps> = (props) => {
   const {
-    box: { x, y, width, height, visible, color },
+    box: { x, y, width, height, visible, color, onHoverStart, onHoverEnd },
   } = props;
 
   return (
-    <div
+    <motion.div
+      onHoverStart={onHoverStart}
+      onHoverEnd={onHoverEnd}
       style={{
         display: visible ? "block" : "none",
         position: "absolute",

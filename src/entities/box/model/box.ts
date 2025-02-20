@@ -1,7 +1,8 @@
 import _ from "lodash";
 import { BoxConfig } from "../types";
+import { HoverHandlers } from "motion/react";
 
-interface IBox extends Readonly<BoxConfig> {
+interface IBox extends Readonly<BoxConfig>, HoverHandlers {
   readonly id: string;
   readonly visible: boolean;
   readonly update: (params: Partial<BoxConfig>) => Box;
@@ -17,6 +18,13 @@ export class Box implements IBox {
 
   readonly visible: boolean;
   readonly color: string;
+
+  readonly onHoverStart = () => {
+    console.log("hover start");
+  };
+  readonly onHoverEnd = () => {
+    console.log("hover end");
+  };
 
   constructor(params: BoxConfig) {
     const {
