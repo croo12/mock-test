@@ -10,8 +10,10 @@ import { Box, BoxStyle, type Position, type Size } from "@/entities/box";
 import { BaseBoxComponent } from "@/entities/box/ui/base-box";
 import { DrawingLayer } from "@/features/drawing";
 import React from "react";
+import { BoxWrapper } from "@/features/update-box/ui";
 
 export const DemoPage = () => {
+  const [mode, setMode] = React.useState<"drawing" | "update">("drawing");
   const [boxes, setBoxes] = React.useState<Box[]>([]);
   const [options, setOptions] = React.useState<BoxStyle>({});
 
@@ -23,17 +25,31 @@ export const DemoPage = () => {
     <div className="flex h-screen w-full">
       <Card className="flex h-full flex-1 flex-col">
         <CardHeader>
-          <CardTitle>Drawing</CardTitle>
+          <CardTitle>
+            Drawing{" "}
+            <Button
+              variant="outline"
+              onClick={() =>
+                setMode((prev) => (prev === "drawing" ? "update" : "drawing"))
+              }
+            >
+              change
+            </Button>
+          </CardTitle>
           <CardDescription>Draw boxes on the canvas</CardDescription>
         </CardHeader>
         <CardContent className="relative m-2 flex-1">
           {boxes.map((box) => (
-            <BaseBoxComponent box={box} key={box.id} />
+            <BoxWrapper box={box} key={box.id}>
+              <BaseBoxComponent box={box} />
+            </BoxWrapper>
           ))}
-          <DrawingLayer
-            onDrawComplete={handleDrawComplete}
-            drawingOptions={options}
-          />
+          {mode === "drawing" && (
+            <DrawingLayer
+              onDrawComplete={handleDrawComplete}
+              drawingOptions={options}
+            />
+          )}
         </CardContent>
       </Card>
       <Card className="w-[300px] flex-none">
