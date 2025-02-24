@@ -1,14 +1,14 @@
-import { Box, BoxStyle, type Position, type Size } from "@/entities/box";
-import { BaseBoxComponent } from "@/entities/box/ui/base-box";
-import { DrawingLayer } from "@/features/drawing";
-import { Button } from "@/shared/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/shared/ui/card";
+  Button,
+} from "@/shared/ui";
+import { Box, BoxStyle, type Position, type Size } from "@/entities/box";
+import { BaseBoxComponent } from "@/entities/box/ui/base-box";
+import { DrawingLayer } from "@/features/drawing";
 import React from "react";
 
 export const DemoPage = () => {
@@ -20,13 +20,13 @@ export const DemoPage = () => {
   };
 
   return (
-    <div className="flex w-full h-screen">
-      <Card className="flex flex-col flex-1 h-full">
+    <div className="flex h-screen w-full">
+      <Card className="flex h-full flex-1 flex-col">
         <CardHeader>
           <CardTitle>Drawing</CardTitle>
           <CardDescription>Draw boxes on the canvas</CardDescription>
         </CardHeader>
-        <CardContent className="relative flex-1 m-2">
+        <CardContent className="relative m-2 flex-1">
           {boxes.map((box) => (
             <BaseBoxComponent box={box} key={box.id} />
           ))}
@@ -36,7 +36,7 @@ export const DemoPage = () => {
           />
         </CardContent>
       </Card>
-      <Card className="flex-none w-[300px]">
+      <Card className="w-[300px] flex-none">
         <Button
           variant="secondary"
           size="lg"
@@ -56,7 +56,7 @@ export const DemoPage = () => {
         <Button
           variant="secondary"
           size="lg"
-          className="w-full bg-black-500"
+          className="bg-black-500 w-full"
           onClick={() => setOptions((prev) => ({ ...prev, color: "black" }))}
         >
           BLACK

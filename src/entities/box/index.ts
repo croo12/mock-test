@@ -1,2 +1,3 @@
 export * from "./types";
-export * from "./model/box";
+export * from "./model";
+export * from "./ui";

@@ -23,6 +23,7 @@ export default tseslint.config(
         "warn",
         { allowConstantExport: true },
       ],
+      "react/jsx-max-props-per-line": ["error", { maximum: 1 }],
     },
   },
   {
