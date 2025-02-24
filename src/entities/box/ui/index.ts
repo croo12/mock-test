@@ -1,1 +1,1 @@
-export { BaseBoxComponent } from "./base-box"
+export { BaseBoxComponent } from "./base-box";

@@ -61,7 +61,7 @@ export const DrawingLayer: React.FC<DrawingLayerProps> = ({
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
-      className={`rounded-md border border-black absolute top-0 left-0 right-0 bottom-0 cursor-crosshair z-10 ${disabled ? "pointer-events-none" : ""}`}
+      className={`absolute top-0 right-0 bottom-0 left-0 z-10 cursor-crosshair rounded-md border border-black ${disabled ? "pointer-events-none" : ""}`}
     >
       {currentBox && (
         <motion.div
