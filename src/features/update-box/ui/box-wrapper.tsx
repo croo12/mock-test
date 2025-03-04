@@ -1,13 +1,13 @@
 import type { Box } from "@/entities/box";
 import { Popover, PopoverContent, PopoverTrigger } from "@/shared/ui";
 import React from "react";
+import { motion } from "motion/react";
 
 interface BoxWrapperProps {
   box: Box;
-  children: React.ReactNode;
 }
 
-export const BoxWrapper: React.FC<BoxWrapperProps> = ({ box, children }) => {
+export const BoxWrapper: React.FC<BoxWrapperProps> = ({ box }) => {
   const [open, setOpen] = React.useState(false);
 
   const handleMouseEnter = () => {
@@ -26,7 +26,7 @@ export const BoxWrapper: React.FC<BoxWrapperProps> = ({ box, children }) => {
         onMouseLeave={handleMouseLeave}
         asChild
       >
-        {children}
+        <motion.div className="absolute h-full w-full bg-transparent" />
       </PopoverTrigger>
       <PopoverContent
         onMouseEnter={handleMouseEnter}

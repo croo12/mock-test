@@ -40,9 +40,9 @@ export const DemoPage = () => {
         </CardHeader>
         <CardContent className="relative m-2 flex-1">
           {boxes.map((box) => (
-            <BoxWrapper box={box} key={box.id}>
-              <BaseBoxComponent box={box} />
-            </BoxWrapper>
+            <BaseBoxComponent key={box.id} box={box}>
+              <BoxWrapper box={box} />
+            </BaseBoxComponent>
           ))}
           {mode === "drawing" && (
             <DrawingLayer

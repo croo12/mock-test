@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 
 interface BaseBoxComponentProps {
   box: Box;
+  children?: React.ReactNode;
 }
 
 export const BaseBoxComponent: React.FC<BaseBoxComponentProps> = (props) => {
@@ -24,6 +25,8 @@ export const BaseBoxComponent: React.FC<BaseBoxComponentProps> = (props) => {
         border: "2px solid",
         borderColor: color,
       }}
-    />
+    >
+      <div className="relative h-full w-full">{props.children}</div>
+    </motion.div>
   );
 };
