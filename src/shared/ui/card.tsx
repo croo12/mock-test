@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "./utils";
 import { motion } from "motion/react";
 
 type MotionDivProps = React.ComponentProps<typeof motion.div>;

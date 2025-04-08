@@ -1,6 +1,8 @@
-import { DemoPage } from "@/pages/demo";
+import { lazy } from "react";
 import "./app.css";
 
+const Demo = lazy(() => import("@/pages/demo"));
+
 export function App() {
-  return <DemoPage />;
+  return <Demo />;
 }
