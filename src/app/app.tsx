@@ -4,5 +4,5 @@ import "./app.css";
 const Demo = lazy(() => import("@/pages/demo"));
 
 export function App() {
-  return <Demo />;
+	return <Demo />;
 }
