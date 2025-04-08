@@ -1,3 +1,12 @@
+import { Button } from "@/shared/ui";
+import { useRouter } from "@/shared/router";
 export const Demo = () => {
-	return <div>gogo ?</div>;
+  const history = useRouter((state) => state.history);
+
+  return (
+    <div>
+      <Button onClick={() => history.push("/game")}>go to game</Button>
+      gogo ?
+    </div>
+  );
 };
