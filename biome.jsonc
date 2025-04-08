@@ -11,13 +11,13 @@
     "lineEnding": "lf",
     "lineWidth": 80,
     "attributePosition": "auto",
-    "bracketSpacing": true,
+    "bracketSpacing": true
   },
   "organizeImports": { "enabled": true },
   "linter": {
     "enabled": true,
     "rules": { "recommended": false },
-    "ignore": ["dist"],
+    "ignore": ["dist"]
   },
   "javascript": {
     "formatter": {
@@ -29,8 +29,8 @@
       "bracketSameLine": false,
       "quoteStyle": "double",
       "attributePosition": "auto",
-      "bracketSpacing": true,
-    },
+      "bracketSpacing": true
+    }
   },
   "overrides": [
     {
@@ -41,7 +41,7 @@
             "noExtraBooleanCast": "error",
             "noMultipleSpacesInRegularExpressionLiterals": "error",
             "noUselessCatch": "error",
-            "noWith": "error",
+            "noWith": "error"
           },
           "correctness": {
             "noConstAssign": "error",
@@ -66,7 +66,7 @@
             "noUnusedVariables": "error",
             "useIsNan": "error",
             "useValidForDirection": "error",
-            "useYield": "error",
+            "useYield": "error"
           },
           "suspicious": {
             "noAsyncPromiseExecutor": "error",
@@ -91,10 +91,10 @@
             "noSparseArray": "error",
             "noUnsafeNegation": "error",
             "useGetterReturn": "error",
-            "useValidTypeof": "error",
-          },
-        },
-      },
+            "useValidTypeof": "error"
+          }
+        }
+      }
     },
     { "include": ["**/*.{ts,tsx}"], "javascript": { "globals": [] } },
     {
@@ -110,12 +110,12 @@
             "noSetterReturn": "off",
             "noUndeclaredVariables": "off",
             "noUnreachable": "off",
-            "noUnreachableSuper": "off",
+            "noUnreachableSuper": "off"
           },
           "style": {
             "noArguments": "error",
             "noVar": "error",
-            "useConst": "error",
+            "useConst": "error"
           },
           "suspicious": {
             "noClassAssign": "off",
@@ -126,10 +126,10 @@
             "noImportAssign": "off",
             "noRedeclare": "off",
             "noUnsafeNegation": "off",
-            "useGetterReturn": "off",
-          },
-        },
-      },
+            "useGetterReturn": "off"
+          }
+        }
+      }
     },
     {
       "include": ["**/*.{ts,tsx}"],
@@ -138,7 +138,7 @@
           "complexity": { "noUselessTypeConstraint": "error" },
           "correctness": {
             "noUnusedVariables": "error",
-            "useArrayLiterals": "off",
+            "useArrayLiterals": "off"
           },
           "style": { "noNamespace": "error", "useAsConstAssertion": "error" },
           "suspicious": {
@@ -146,10 +146,10 @@
             "noExtraNonNullAssertion": "error",
             "noMisleadingInstantiator": "error",
             "noUnsafeDeclarationMerging": "error",
-            "useNamespaceKeyword": "error",
-          },
-        },
-      },
+            "useNamespaceKeyword": "error"
+          }
+        }
+      }
     },
     {
       "include": ["**/*.{ts,tsx}"],
@@ -278,17 +278,17 @@
           "onmessageerror",
           "onselectstart",
           "onmousewheel",
-          "ononline",
-        ],
+          "ononline"
+        ]
       },
       "linter": {
         "rules": {
           "correctness": {
             "useExhaustiveDependencies": "warn",
-            "useHookAtTopLevel": "error",
-          },
-        },
-      },
-    },
-  ],
+            "useHookAtTopLevel": "error"
+          }
+        }
+      }
+    }
+  ]
 }
