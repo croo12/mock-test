@@ -5,8 +5,9 @@ export const Demo = () => {
 
   return (
     <div>
-      <Button onClick={() => history.push("/game")}>go to game</Button>
-      gogo ?
+      <Button onClick={() => history.push("/game")} className="text-black">
+        go to game
+      </Button>
     </div>
   );
 };
