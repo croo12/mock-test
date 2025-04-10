@@ -22,11 +22,23 @@ export const GameResultObserver = () => {
       const result = calculateWinner(lastBoard);
 
       if (result) {
-        overlay.open(({ isOpen, close, unmount }) => {
+        return overlay.open(({ isOpen, unmount }) => {
           const onClose = () => {
             useRouter.getState().history.push("/");
             resetGame();
-            close();
+            unmount();
+          };
+
+          return (
+            <ResultModal result={result} open={isOpen} onClose={onClose} />
+          );
+        });
+      }
+
+      if (lastBoard.every((item) => item !== null)) {
+        return overlay.open(({ isOpen, unmount }) => {
+          const onClose = () => {
+            resetGame();
             unmount();
           };
 
@@ -34,14 +46,14 @@ export const GameResultObserver = () => {
             <Dialog open={isOpen} modal onOpenChange={onClose}>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle>{result} is Winner!</DialogTitle>
+                  <DialogTitle>Draw</DialogTitle>
                 </DialogHeader>
                 <DialogDescription>
-                  Winner Winner Chicken Dinner!
+                  No winner, no loser, just a draw.
                 </DialogDescription>
                 <DialogFooter>
                   <Button className="text-black" onClick={onClose}>
-                    Go To Main
+                    Restart
                   </Button>
                 </DialogFooter>
               </DialogContent>
@@ -56,3 +68,23 @@ export const GameResultObserver = () => {
 
   return null;
 };
+
+const ResultModal = ({
+  result,
+  open,
+  onClose
+}: { result: string; open: boolean; onClose: () => void }) => (
+  <Dialog open={open} modal onOpenChange={onClose}>
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>{result} is Winner!</DialogTitle>
+      </DialogHeader>
+      <DialogDescription>Winner Winner Chicken Dinner!</DialogDescription>
+      <DialogFooter>
+        <Button className="text-black" onClick={onClose}>
+          Go To Main
+        </Button>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
+);
