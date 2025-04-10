@@ -4,7 +4,7 @@ import { useRouter } from "@/shared/router";
 import { OverlayProvider } from "overlay-kit";
 
 const Demo = lazy(() => import("@/pages/demo"));
-const GameBoard = lazy(() => import("@/pages/game-board"));
+const GameBoard = lazy(() => import("@/pages/game"));
 
 export function App() {
   const path = useRouter((state) => state.path);

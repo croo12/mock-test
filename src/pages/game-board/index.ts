@@ -1,1 +1,0 @@
-export { GameBoard as default } from "./ui/game-board";

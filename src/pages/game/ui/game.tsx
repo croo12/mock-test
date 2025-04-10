@@ -3,9 +3,10 @@ import { useState } from "react";
 import { useGameStore } from "@/entities/game-status";
 
 import { GameHistory } from "./game-history";
-import { Board } from "./board";
+import { Board } from "./game-board";
+import { GameResultObserver } from "./game-result-observer";
 
-export const GameBoard = () => {
+export const Game = () => {
   const [historyStep, setHistoryStep] = useState<number | null>(null);
 
   const board = useGameStore(
@@ -25,6 +26,7 @@ export const GameBoard = () => {
         historyStep={historyStep}
         onClickHistoryStep={(step) => setHistoryStep(step)}
       />
+      <GameResultObserver />
     </div>
   );
 };

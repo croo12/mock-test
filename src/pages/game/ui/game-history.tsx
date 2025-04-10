@@ -14,7 +14,6 @@ export const GameHistory = ({
 }: GameHistoryProps) => {
   const history = useGameStore((state) => state.history);
 
-  console.log(history, historyStep);
   const highlightedStep = historyStep ?? history.length - 1;
 
   return (
