@@ -1,27 +1,23 @@
-import { useCallback } from "react";
-import { useGameStore } from "../model/game-status";
 import { motion } from "motion/react";
+import { CellStatus } from "@/entities/game-status";
 
 interface SquareProps {
-  index: number;
+  status: CellStatus;
+  onClick: () => void;
 }
 
-export const Square = ({ index }: SquareProps) => {
-  const now = useGameStore((state) => state.history.indexOf(index));
-  const { setCurrentMove } = useGameStore((state) => state.actions);
-
-  const handleClick = useCallback(() => {
-    if (now !== -1) return;
-
-    setCurrentMove(index);
-  }, [index, setCurrentMove]);
-
+export const Square = ({ status, onClick }: SquareProps) => {
   return (
     <motion.div
       className="col-span-1 row-span-1 flex items-center justify-center cursor-pointer border border-gray-300"
-      onClick={handleClick}
+      style={{
+        backgroundColor: "white",
+        transition: "scale 0.2s ease-in-out"
+      }}
+      onClick={onClick}
+      whileHover={{ scale: 1.05 }}
     >
-      {now === -1 ? "Empty" : now % 2 === 0 ? "X" : "O"}
+      {status}
     </motion.div>
   );
 };

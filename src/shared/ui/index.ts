@@ -13,3 +13,11 @@ export {
 	PopoverContent,
 	PopoverTrigger,
 } from "./pop-over";
+export {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from "./dialog";
