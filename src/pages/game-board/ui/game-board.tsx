@@ -8,20 +8,23 @@ import { Board } from "./board";
 export const GameBoard = () => {
   const [historyStep, setHistoryStep] = useState<number | null>(null);
 
-  const history = useGameStore((state) => state.history);
+  const board = useGameStore(
+    (state) => state.history[historyStep ?? state.history.length - 1]
+  );
   const { proceedGame } = useGameStore((state) => state.actions);
-
-  const currentBoard = history[historyStep ?? history.length - 1];
 
   return (
     <div className="h-screen w-screen flex items-center justify-center gap-4">
       <Board
-        board={currentBoard}
+        board={board}
         onClickBoard={(index) => {
           proceedGame(index);
         }}
       />
-      <GameHistory />
+      <GameHistory
+        historyStep={historyStep}
+        onClickHistoryStep={(step) => setHistoryStep(step)}
+      />
     </div>
   );
 };
