@@ -14,17 +14,18 @@ import { overlay } from "overlay-kit";
 import { useEffect } from "react";
 
 export const GameResultObserver = () => {
+  const { resetGame } = useGameStore((state) => state.actions);
+
   useEffect(() => {
     const unsubscribe = useGameStore.subscribe((state) => {
       const lastBoard = state.history[state.history.length - 1];
       const result = calculateWinner(lastBoard);
 
       if (result) {
-        console.log(result);
-
         overlay.open(({ isOpen, close, unmount }) => {
           const onClose = () => {
             useRouter.getState().history.push("/");
+            resetGame();
             close();
             unmount();
           };
